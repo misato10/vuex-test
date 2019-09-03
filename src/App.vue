@@ -12,7 +12,16 @@ export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  created(){
+    //ストアの状態を取得
+    console.log(this.$store.state.count)
+    //ストアの状態を更新
+    this.$store.commit('increment')
+
+    console.log(this.$store.state.message)
+  },
+  
 }
 </script>
 
