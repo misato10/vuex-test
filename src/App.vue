@@ -1,26 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>{{ message }}</p>
+    <EditForm/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 子コンポーネントを読み込む
+import EditForm from '@/components/EditForm.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    EditForm
   },
-  created(){
-    //ストアの状態を取得
-    console.log(this.$store.state.count)
-    //ストアの状態を更新
-    this.$store.commit('increment')
-
-    console.log(this.$store.state.message)
-  },
+  computed: {
+    message() {
+      return this.$store.getters.message
+    }
+  }
   
 }
 </script>
